@@ -2,6 +2,7 @@ import EnrouteWaypoint from "./EnrouteWaypoint";
 import Fix from "./Fix";
 import Navaid from "./Navaid";
 import Ndb from "./Ndb";
+import Path from "./Path";
 import TerminalWaypoint from "./TerminalWaypoint";
 import Vor from "./Vor";
 import Waypoint from "./Waypoint";
@@ -13,5 +14,6 @@ export {
     Navaid,
     Ndb,
     TerminalWaypoint,
-    Vor
+    Vor,
+    Path
 }

@@ -6,6 +6,7 @@
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./dist/types",
+    "sourceMap": true,
     "strict": true,
     "lib":[
         "es6"

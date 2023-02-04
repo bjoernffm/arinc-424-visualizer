@@ -4,16 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "buid": "tsc",
+    "start": "tsc && node ./dist/types/test.js",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.11.18",
-    "typedoc": "^0.23.24",
-    "typescript": "^4.9.4"
+    "@types/node": "^18",
+    "typedoc": "^0",
+    "typescript": "^4",
+    "@typescript-eslint/eslint-plugin": "^5",
+    "@typescript-eslint/parser": "^5",
+    "eslint": "^8"
   },
   "dependencies": {
-    "aviation-math": "^1.4.4"
+    "aviation-math": "^1.4"
   }
 }
