@@ -1,3 +1,3 @@
-import { Navaid } from "./Navaid";
+import Navaid from "./Navaid";
 
-export class Ndb extends Navaid {}
+export default class Ndb extends Navaid {}

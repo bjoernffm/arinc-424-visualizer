@@ -1,6 +1,6 @@
-import { Waypoint } from "./Waypoint";
+import Waypoint from "./Waypoint";
 
-export class TerminalWaypoint extends Waypoint
+export default class TerminalWaypoint extends Waypoint
 {
     protected _terminalArea: string;
 

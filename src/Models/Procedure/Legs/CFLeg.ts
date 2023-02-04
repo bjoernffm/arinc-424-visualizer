@@ -1,9 +1,9 @@
 import { getBearing } from "aviation-math";
-import { Fix } from "../../General/Fix";
+import { Fix } from "../../General";
 import { ProcedureWaypoint } from "../ProcedureWaypoint";
-import { Leg } from "./Leg";
+import Leg from "./Leg";
 
-export class CFLeg extends Leg {
+export default class CFLeg extends Leg {
     public constructor(from: ProcedureWaypoint, fix: Fix, course: number)
     {
         const bearing = getBearing(from.fix, fix);

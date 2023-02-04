@@ -1,9 +1,9 @@
 import { getDistance, projectBearingDistance } from "aviation-math";
-import { Fix } from "../../General/Fix";
+import { Fix } from "../../General";
 import { ProcedureWaypoint } from "../ProcedureWaypoint";
-import { Leg } from "./Leg";
+import Leg from "./Leg";
 
-export class CDLeg extends Leg {
+export default class CDLeg extends Leg {
     public constructor(from: ProcedureWaypoint, fix: Fix, course: number, distance: number)
     {
         for(let i = 0; i < 200; i += 0.1) {

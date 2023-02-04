@@ -1,15 +1,15 @@
-import { Fix } from "../Models/General/Fix";
-import { Identifier, RegionCode } from "../Types";
-import { FileReader } from "./FileReader";
-import { NavaidFactory } from "./NavaidFactory";
-import { NavDataProvider } from "./NavDataProvider";
-import { WaypointFactory } from "./WaypointFactory";
+import { Fix } from "../Models/General";
+import { NavDataProvider } from "../Providers";
+import FileReader from "../Utils/FileReader";
+import { Identifier, RegionCode } from "../Utils/Types";
+import NavaidFactory from "./NavaidFactory";
+import WaypointFactory from "./WaypointFactory";
 
-export class NavDataProviderFactory {
+export default class NavDataProviderFactory {
     public static createFromXP12(config: {waypointFile: string, navaidFile: string}) {
         let lines: string[] = [];
         let map: Map<Identifier, Map<RegionCode, Fix>> = new Map();
-        
+
         lines = FileReader.getLinesFromFile(config.waypointFile);
         if(this.isCurrentVersion(lines)) {
             map = this.enrichMapWithWaypoints(map, lines);

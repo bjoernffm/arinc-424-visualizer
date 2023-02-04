@@ -1,4 +1,4 @@
-export class PRecord {
+export default class PXRecord {
     protected data: string[];
 
     constructor(data: string[]) {

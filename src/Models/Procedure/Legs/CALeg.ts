@@ -1,9 +1,9 @@
 import { projectBearingDistance } from "aviation-math";
-import { Fix } from "../../General/Fix";
+import { Fix } from "../../General";
 import { ProcedureWaypoint } from "../ProcedureWaypoint";
-import { Leg } from "./Leg";
+import Leg from "./Leg";
 
-export class CALeg extends Leg {
+export default class CALeg extends Leg {
     public constructor(from: ProcedureWaypoint, course: number, altitude: number) {
         let to = projectBearingDistance(from.fix, course, (altitude/500));
         let toFix = new Fix(to.lat, to.lon, "ALTITUDE INTERCEPT", "", "ALTITUDE INTERCEPT");

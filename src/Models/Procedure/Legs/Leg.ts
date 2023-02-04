@@ -1,6 +1,6 @@
 import { ProcedureWaypoint } from "../ProcedureWaypoint";
 
-export class Leg {
+export default class Leg {
     public from: ProcedureWaypoint;
     public to: ProcedureWaypoint;
     public distance: number = 0;

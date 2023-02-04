@@ -1,7 +1,7 @@
 import { Position } from "aviation-math";
-import { PRecord } from "./PRecord";
+import PXRecord from "./PXRecord";
 
-export class PGRecord extends PRecord {
+export default class PGRecord extends PXRecord {
     private _position: Position | null = null;
 
     constructor(data: string[]) {

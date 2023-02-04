@@ -1,4 +1,4 @@
-import { Waypoint } from "./Waypoint";
+import Waypoint from "./Waypoint";
 
-export class EnrouteWaypoint extends Waypoint {
+export default class EnrouteWaypoint extends Waypoint {
 }

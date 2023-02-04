@@ -1,8 +1,6 @@
-import { EnrouteWaypoint } from "../Models/General/EnrouteWaypoint";
-import { TerminalWaypoint } from "../Models/General/TerminalWaypoint";
-import { Waypoint } from "../Models/General/Waypoint";
+import { Waypoint, EnrouteWaypoint, TerminalWaypoint } from "../Models/General";
 
-export class WaypointFactory {
+export default class WaypointFactory {
     public static create(data: string): Waypoint {
         const regex = /^\s*(\-?\d+\.\d+)\s+(\-?\d+\.\d+)\s+(\w+)\s+(\w+)\s+(\w+)\s+(\d+)\s+(.+)$/s;
         const res = data.match(regex);

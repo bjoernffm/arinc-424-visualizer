@@ -1,6 +1,6 @@
 import { Position } from "aviation-math";
 
-export class Fix extends Position
+export default class Fix extends Position
 {
     protected _identifier: string;
     protected _regionCode: string;

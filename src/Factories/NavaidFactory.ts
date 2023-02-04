@@ -1,8 +1,6 @@
-import { Navaid } from "../Models/General/Navaid";
-import { Vor } from "../Models/General/Vor";
-import { Ndb } from "../Models/General/Ndb";
+import { Navaid, Vor, Ndb } from "../Models/General";
 
-export class NavaidFactory
+export default class NavaidFactory
 {
     public static create(data: string): Navaid
     {
@@ -38,7 +36,7 @@ export class NavaidFactory
         return new Vor(lat, lon, identifier, regionCode, spokenName, frequency);
     }
 
-    private static createNdb(data: string): Vor
+    private static createNdb(data: string): Ndb
     {
         const regex = /^2\s+(\-?\d+\.\d+)\s+(\-?\d+\.\d+)\s+(\-?\d+)\s+(\d+)\s+(\d+)\s+(\-?\d+.\d+)\s+(\w+)\s+(\w+)\s+(\w+)\s+(.+)$/i;
         const res = data.match(regex);

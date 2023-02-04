@@ -1,6 +1,6 @@
-import { PRecord } from "./PRecord";
+import PXRecord from "./PXRecord";
 
-export class PDRecord extends PRecord {
+export default class PDRecord extends PXRecord {
     public get recordType(): string {
         return this.data[0];
     }
@@ -71,6 +71,3 @@ export class PDRecord extends PRecord {
         return this.data[30];
     }
 }
-
-export class PERecord extends PDRecord {}
-export class PFRecord extends PDRecord {}

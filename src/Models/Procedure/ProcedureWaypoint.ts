@@ -1,5 +1,5 @@
-import { Fix } from "../General/Fix";
-import { Leg } from "./Legs/Leg";
+import { Fix } from "../General";
+import { Leg } from "./Legs";
 
 class FlightAttributes {
     public altitudeDescription: string|null = null;

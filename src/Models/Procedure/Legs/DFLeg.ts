@@ -1,8 +1,8 @@
 import { getBearing, getTurnRadius, projectTurnPosition, TurnDirection } from "aviation-math";
 import { ProcedureWaypoint } from "../ProcedureWaypoint";
-import { Leg } from "./Leg";
+import Leg from "./Leg";
 
-export class DFLeg extends Leg {
+export default class DFLeg extends Leg {
     public constructor(from: ProcedureWaypoint, to: ProcedureWaypoint, turnDirection: string) {
 
         if(from.previousLeg) {

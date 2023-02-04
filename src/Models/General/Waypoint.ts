@@ -1,6 +1,6 @@
-import { Fix } from "./Fix";
+import Fix from "./Fix";
 
-export class Waypoint extends Fix
+export default class Waypoint extends Fix
 {
     protected _type: number;
 

@@ -1,11 +1,11 @@
-import { Fix } from "../Models/General/Fix";
-import { Identifier, RegionCode } from "../Types";
+import { Fix } from "../Models/General";
+import { NavDataMap } from "../Utils/Types";
 
-export class NavDataProvider
+export default class NavDataProvider
 {
-    protected _map: Map<Identifier, Map<RegionCode, Fix>>;
+    protected _map;
 
-    public constructor(map: Map<Identifier, Map<RegionCode, Fix>>)
+    public constructor(map: NavDataMap)
     {
         this._map = map;
     }
