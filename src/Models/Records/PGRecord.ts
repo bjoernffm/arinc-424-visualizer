@@ -7,9 +7,9 @@ export default class PGRecord extends PXRecord {
     constructor(data: string[]) {
         super(data);
 
-        //console.log(this.data);
-        if(typeof this.data[9] !== undefined && typeof this.data[10] !== undefined) {
-            this._position = new Position(this.data[9] + "," + this.data[10]);
+        // console.log(this.data);
+        if (typeof this.data[9] !== undefined && typeof this.data[10] !== undefined) {
+            this._position = new Position(`${this.data[9] },${ this.data[10]}`);
         }
     }
 
@@ -30,15 +30,15 @@ export default class PGRecord extends PXRecord {
     }
 
     public get lat(): number {
-        if(this.hasLocation === false)
-            return 0;
+        if (this.hasLocation === false)
+        { return 0; }
 
         return this._position!.lat;
     }
 
     public get lon(): number {
-        if(this.hasLocation === false)
-            return 0;
+        if (this.hasLocation === false)
+        { return 0; }
 
         return this._position!.lon;
     }

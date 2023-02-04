@@ -27,7 +27,7 @@ export default class PDRecord extends PXRecord {
             regionCode: this.data[6],
             sectionCode: this.data[7],
             subSectionCode: this.data[8]
-        }
+        };
     }
 
     public get recommended_navaid(): {id: string, regionCode: string, sectionCode: string, subSectionCode: string} {
@@ -36,7 +36,7 @@ export default class PDRecord extends PXRecord {
             regionCode: this.data[15],
             sectionCode: this.data[16],
             subSectionCode: this.data[17]
-        }
+        };
     }
 
     public get turn_direction(): string {

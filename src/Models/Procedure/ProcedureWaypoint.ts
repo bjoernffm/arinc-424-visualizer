@@ -14,7 +14,7 @@ export class ProcedureWaypoint {
 
     public constraints: FlightAttributes = new FlightAttributes();
     public description: string | null = null;
-    public overfly: boolean = false;
+    public overfly = false;
     public inboundCourse: number | null = null;
     public outboundCourse: number | null = null;
     public fix: Fix;
@@ -24,20 +24,20 @@ export class ProcedureWaypoint {
     }
 
     public toString(): string {
-        let parts = [];
+        const parts = [];
 
-        if(this.inboundCourse) {
+        if (this.inboundCourse) {
             parts.push(`--${Math.round(this.inboundCourse)}°-->`);
         }
 
-        if(this.fix.identifier) {
+        if (this.fix.identifier) {
             parts.push(`id: ${this.fix.identifier}`);
         }
 
-        if(this.outboundCourse) {
+        if (this.outboundCourse) {
             parts.push(`--${Math.round(this.outboundCourse)}°-->`);
         }
-        /*if(this.constraints.altitudeDescription) {
+        /* if(this.constraints.altitudeDescription) {
             parts.push(`altitudeDescription: ${this.constraints.altitudeDescription}`);
         }
         if(this.constraints.altitude1) {
@@ -49,7 +49,7 @@ export class ProcedureWaypoint {
         if(this.constraints.speedLimit) {
             parts.push(`speedLimit: ${this.constraints.speedLimit}`);
         }*/
-        
+
         return `${this.constructor.name}(${parts.join(", ")})`;
     }
 }
@@ -67,6 +67,6 @@ class WaypointDescriptionCode {
             R: "Non-Essential Waypoint",
             T: "Transition Essential Waypoint",
             V: "VHF Navaid as Waypoint"
-        }
+        };
     }
 }

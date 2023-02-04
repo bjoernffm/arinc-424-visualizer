@@ -13,6 +13,6 @@ export default class Waypoint extends Fix
 
     public get type(): number
     {
-        return this._type
+        return this._type;
     }
 }

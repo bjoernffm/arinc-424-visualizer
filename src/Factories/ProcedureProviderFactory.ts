@@ -9,8 +9,8 @@ export default class ProcedureProviderFactory {
 
     public static createFromXP12(path: string): ProcedureProvider {
         const records = FileReader.getLinesFromFile(path)
-                            .filter(line => line.length > 0)
-                            .map(line => RecordFactory.create(line));
+            .filter(line => line.length > 0)
+            .map(line => RecordFactory.create(line));
 
         const map = ProcedureProviderFactory.getMap();
 
@@ -21,18 +21,18 @@ export default class ProcedureProviderFactory {
 
     private static putMapEntry(record: PXRecord, map: ProcedureProviderMap)
     {
-        if(record instanceof PDRecord) {
-            if(map.get(record.recordType)!.has(record.routeId)) {
-                let arr = map.get(record.recordType)!.get(record.routeId)!;
+        if (record instanceof PDRecord) {
+            if (map.get(record.recordType)!.has(record.routeId)) {
+                const arr = map.get(record.recordType)!.get(record.routeId)!;
                 arr.push(record);
                 map.get(record.recordType)!.set(record.routeId, arr);
             } else {
                 map.get(record.recordType)!.set(record.routeId, [record]);
             }
         }
-        if(record instanceof PGRecord) {
-            if(map.get(record.recordType)!.has(record.id)) {
-                let arr = map.get(record.recordType)!.get(record.id)!;
+        if (record instanceof PGRecord) {
+            if (map.get(record.recordType)!.has(record.id)) {
+                const arr = map.get(record.recordType)!.get(record.id)!;
                 arr.push(record);
                 map.get(record.recordType)!.set(record.id, arr);
             } else {

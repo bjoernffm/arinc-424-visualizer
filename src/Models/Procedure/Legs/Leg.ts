@@ -4,7 +4,7 @@ import { ProcedureWaypoint } from "../ProcedureWaypoint";
 export default class Leg {
     private _from: ProcedureWaypoint;
     private _to: ProcedureWaypoint;
-    public distance: number = 0;
+    public distance = 0;
     public betweenPath: Path = new Path;
 
     public turnDirection: string | null = null;
@@ -39,11 +39,11 @@ export default class Leg {
     }
 
     public toString(): string {
-        let parts = [];
-        if(this.turnDirection) {
+        const parts = [];
+        if (this.turnDirection) {
             parts.push(`turnDirection: ${this.turnDirection}`);
         }
-        
+
         return `${this.constructor.name}(${parts.join(", ")})`;
     }
 }

@@ -11,7 +11,7 @@ export default class NavDataProvider
     }
 
     public get(identifier: string, regionCode: string): Fix {
-        if(this._map.has(identifier) && this._map.get(identifier)!.has(regionCode)) {
+        if (this._map.has(identifier) && this._map.get(identifier)!.has(regionCode)) {
             return this._map.get(identifier)!.get(regionCode)!;
         }
 

@@ -11,12 +11,12 @@ export default class NavDataProviderFactory {
         let map: Map<Identifier, Map<RegionCode, Fix>> = new Map();
 
         lines = FileReader.getLinesFromFile(config.waypointFile);
-        if(this.isCurrentVersion(lines)) {
+        if (this.isCurrentVersion(lines)) {
             map = this.enrichMapWithWaypoints(map, lines);
         }
 
         lines = FileReader.getLinesFromFile(config.navaidFile);
-        if(this.isCurrentVersion(lines)) {
+        if (this.isCurrentVersion(lines)) {
             map = this.enrichMapWithNavaids(map, lines);
         }
 
@@ -37,21 +37,21 @@ export default class NavDataProviderFactory {
 
     private static enrichMapWithWaypoints(map: Map<Identifier, Map<RegionCode, Fix>>, lines: string[]): Map<Identifier, Map<RegionCode, Fix>>
     {
-        for(let i = 2; i < lines.length; i++) {
-            let line = lines[i].trim();
+        for (let i = 2; i < lines.length; i++) {
+            const line = lines[i].trim();
 
-            if(line.length == 0) {
+            if (line.length == 0) {
                 continue;
             }
-            if(line == "99") {
+            if (line == "99") {
                 break;
             }
 
-            let waypoint = WaypointFactory.create(line);
+            const waypoint = WaypointFactory.create(line);
 
-            if(map.has(waypoint.identifier) === false) {
+            if (map.has(waypoint.identifier) === false) {
                 map.set(waypoint.identifier, new Map());
-            } 
+            }
 
             map.get(waypoint.identifier)!.set(waypoint.regionCode, waypoint);
         }
@@ -61,24 +61,24 @@ export default class NavDataProviderFactory {
 
     private static enrichMapWithNavaids(map: Map<Identifier, Map<RegionCode, Fix>>, lines: string[]): Map<Identifier, Map<RegionCode, Fix>>
     {
-        for(let i = 2; i < lines.length; i++) {
-            let line = lines[i].trim();
+        for (let i = 2; i < lines.length; i++) {
+            const line = lines[i].trim();
 
-            if(line.length == 0) {
+            if (line.length == 0) {
                 continue;
             }
-            if(line == "99") {
+            if (line == "99") {
                 break;
             }
-            if(line.startsWith("3") == false && line.startsWith("2") == false) {
+            if (line.startsWith("3") == false && line.startsWith("2") == false) {
                 continue;
             }
 
-            let navaid = NavaidFactory.create(line);
+            const navaid = NavaidFactory.create(line);
 
-            if(map.has(navaid.identifier) === false) {
+            if (map.has(navaid.identifier) === false) {
                 map.set(navaid.identifier, new Map());
-            } 
+            }
 
             map.get(navaid.identifier)!.set(navaid.regionCode, navaid);
         }

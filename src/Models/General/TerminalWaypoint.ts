@@ -13,6 +13,6 @@ export default class TerminalWaypoint extends Waypoint
 
     public get terminalArea(): string
     {
-        return this._terminalArea
+        return this._terminalArea;
     }
 }

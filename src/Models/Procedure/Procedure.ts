@@ -13,11 +13,11 @@ export class Procedure {
 
     public toString(): string
     {
-        let parts = [];
+        const parts = [];
         let currentWP = this.firstWaypoint;
         parts.push(currentWP.toString());
 
-        while(currentWP.nextLeg) {
+        while (currentWP.nextLeg) {
             parts.push(currentWP.nextLeg.toString());
             currentWP = currentWP.nextLeg.to;
             parts.push(currentWP.toString());
@@ -34,17 +34,17 @@ export class Procedure {
         let currentWP = this.firstWaypoint;
         path.append(currentWP.fix);
 
-        while(currentWP.nextLeg) {
+        while (currentWP.nextLeg) {
 
-            if(currentWP.nextLeg.betweenPath.length > 0) {
+            if (currentWP.nextLeg.betweenPath.length > 0) {
                 path.appendPath(currentWP.nextLeg.betweenPath);
             }
 
             currentWP = currentWP.nextLeg.to;
-            
-            if(currentWP.inboundCourse && currentWP.outboundCourse) {
+
+            if (currentWP.inboundCourse && currentWP.outboundCourse) {
                 let transition;
-                if(currentWP.overfly === true) {
+                if (currentWP.overfly === true) {
                     // ToDo
                     transition = new FlyoverTurnTransition({
                         flyoverWaypoint: currentWP.fix,
@@ -64,7 +64,7 @@ export class Procedure {
 
                 path.appendPath(transition.toPath());
             } else {
-                path.append(currentWP.fix);           
+                path.append(currentWP.fix);
             }
         }
 

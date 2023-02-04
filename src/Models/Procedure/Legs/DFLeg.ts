@@ -7,15 +7,15 @@ export default class DFLeg extends Leg {
 
         super(from, to);
 
-        if(from.previousLeg) {
+        if (from.previousLeg) {
             from.outboundCourse = from.previousLeg.to.inboundCourse!;
             const turnInboundCourse = from.outboundCourse;
 
             const radius = getTurnRadius(210, 25);
 
-            if(turnDirection == "R") {                
-                for(let i = 0; i < 360; i++) {
-                    let turnEnd = projectTurnPosition(
+            if (turnDirection == "R") {
+                for (let i = 0; i < 360; i++) {
+                    const turnEnd = projectTurnPosition(
                         from.fix,
                         turnInboundCourse,
                         ((turnInboundCourse+i)%360),
@@ -25,17 +25,17 @@ export default class DFLeg extends Leg {
 
                     const bearing = getBearing(turnEnd, to.fix);
                     this.betweenPath.append(turnEnd);
-                    //console.log(bearing, ((turnInboundCourse+i)%360), Math.abs(bearing-((turnInboundCourse+i)%360)))
+                    // console.log(bearing, ((turnInboundCourse+i)%360), Math.abs(bearing-((turnInboundCourse+i)%360)))
 
-                    //console.log(bearing, ((turnInboundCourse+i)%360), Math.abs(bearing-((turnInboundCourse+i)%360)));
-                    if(Math.abs(bearing-((turnInboundCourse+i)%360)) < 1) {
+                    // console.log(bearing, ((turnInboundCourse+i)%360), Math.abs(bearing-((turnInboundCourse+i)%360)));
+                    if (Math.abs(bearing-((turnInboundCourse+i)%360)) < 1) {
                         to.inboundCourse = bearing;
                         break;
                     }
                 }
             } else {
-                for(let i = 0; i < 360; i++) {
-                    let turnEnd = projectTurnPosition(
+                for (let i = 0; i < 360; i++) {
+                    const turnEnd = projectTurnPosition(
                         from.fix,
                         turnInboundCourse,
                         ((turnInboundCourse-i+360)%360),
@@ -44,10 +44,10 @@ export default class DFLeg extends Leg {
                     );
 
                     const bearing = getBearing(turnEnd, to.fix);
-                    //this.betweenPath.append(turnEnd);
-                    //console.log(bearing, ((turnInboundCourse+i)%360), Math.abs(bearing-((turnInboundCourse+i)%360)))
+                    // this.betweenPath.append(turnEnd);
+                    // console.log(bearing, ((turnInboundCourse+i)%360), Math.abs(bearing-((turnInboundCourse+i)%360)))
 
-                    if(Math.abs(bearing-((turnInboundCourse+i+360)%360)) < 1) {
+                    if (Math.abs(bearing-((turnInboundCourse+i+360)%360)) < 1) {
                         to.inboundCourse = bearing;
                     }
                 }
